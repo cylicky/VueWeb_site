@@ -26,11 +26,18 @@ export default defineConfig({
   // devServer: {
   //   proxy: "127.0.0.1:8080",
   // },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/styles/element.scss" as *;`, // 路径根据配置改变，没有别名就⽤相对路径和绝对路径
+
+  // 跨域
+
+  server: {
+    // cors: true, // 默认启用并允许任何源
+    proxy: {
+      '/api': {
+        target: 'http://172.16.200.37:8023/api/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
       },
-    },
-  },
+    }
+  }
 });
+

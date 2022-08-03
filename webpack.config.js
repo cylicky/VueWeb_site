@@ -10,5 +10,5 @@ module.exports = {
     Components({
       resolvers: [ElementPlusResolver()],
     }),
-  ],
+  ]
 }

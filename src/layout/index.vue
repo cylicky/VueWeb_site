@@ -1,13 +1,21 @@
 <script setup>
+import {ref,getCurrentInstance} from "vue"
 import Header from "@/layout/components/Herder/index.vue";
 import PageMain from "@/layout/components/PageMain/index.vue";
+const instance=getCurrentInstance()
+let ceshis=function(e){
+console.log(instance);
+  console.log(e);
+}
+
+
 </script>
 
 <template>
   <div class="common-layout">
     <el-container>
       <el-header style="padding: 0px">
-          <Header />
+          <Header ref="stateab" msg="nihaohashd" @test="ceshis"/>
       </el-header>
       <el-main>
         <PageMain />

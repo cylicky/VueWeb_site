@@ -1,5 +1,10 @@
 import {createRouter, createWebHistory,createWebHashHistory} from "vue-router";
 import Layout from "@/layout/index.vue";
+import Home from "@components/home.vue"
+import Windows from "@components/Windows.vue"
+import Linux from "@components/Linux.vue"
+
+
 
  const routes = [
     {
@@ -11,19 +16,22 @@ import Layout from "@/layout/index.vue";
         {
           path: "home",
           name: "home",
-          component: () => import("@components/home.vue")
+          component: Home
+        //  component: () => import("@components/home.vue")
          // meta: { title: "首页", icon: "el-icon-s-data" }
         },
         {
           path: "Windows",
           name: "Windows",
-          component: () => import("@components/Windows.vue")
+          component: Windows
+         // component: () => import("@components/Windows.vue")
          // meta: { title: "首页", icon: "el-icon-s-data" }
         },
         {
           path: "Linux",
           name: "Linux",
-          component: () => import("@components/Linux.vue")
+          component: Linux
+         // component: () => import("@components/Linux.vue")
          // meta: { title: "首页", icon: "el-icon-s-data" }
         },
         {

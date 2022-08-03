@@ -4,7 +4,7 @@
     <div class="main_txt">
       <h1>E l o a m</h1>
       <h2>Eloam SDK 在线对接平台</h2>
-      <cite>多种对接方式，轻松对接。及时获取最新版SDK开发包。</cite>
+      <cite>多种对接方式,轻松对接。及时获取最新版SDK开发包。</cite>
     </div>
   </div>
   <homemain />

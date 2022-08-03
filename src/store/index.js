@@ -1,9 +1,9 @@
 import { createStore } from "vuex";
 
-const moduleA={
+const moduleA = {
   state() {
     return {
-      count: 0,
+      count: "1",
       todos: [
         { id: 1, text: "...", done: true },
         { id: 2, text: "...", done: false },
@@ -15,7 +15,7 @@ const moduleA={
       state.count += n;
     },
     Reduction(state) {
-      state.count--;
+      state.count++;
     },
     doneTodos(state) {
       return state.todos.filter((todo) => {
@@ -33,19 +33,19 @@ const moduleA={
     actionA({ commit }) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          commit("increment",10);
-          resolve( store.state.count);
+          commit("increment", 10);
+          resolve(store.state.count);
         }, 1000);
       });
     },
   },
   getters: {
-    doubleCount (state) {
+    doubleCountA(state) {
       return state.count * 2
     }
   }
 }
-const moduleB={
+const moduleB = {
   state() {
     return {
       count: 0,
@@ -78,14 +78,14 @@ const moduleB={
     actionA({ commit }) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          commit("increment",10);
-          resolve( store.state.count);
+          commit("increment", 10);
+          resolve(store.state.count);
         }, 1000);
       });
     },
   },
   getters: {
-    doubleCount (state) {
+    doubleCountB(state) {
       return state.count * 2
     }
   }

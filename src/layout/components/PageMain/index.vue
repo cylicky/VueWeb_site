@@ -9,9 +9,9 @@ const store = useStore();
 onBeforeMount(() => {
   console.log("挂载之前去请求");
   // axios.get("/findHomePageCard").then((res) => console.log(res));
-  console.log(store.state.count);
-  store.commit("increment", 10);
-  console.log(store.state.count);
+ // console.log(store.state.count);
+ // store.commit("increment", 10);
+  //console.log(store.state.count);
   // console.log(this.$store.state.count);
 });
 // onMounted() : 组件挂载完成后执行的函数；
@@ -22,7 +22,7 @@ onBeforeMount(() => {
 
 // 组件挂载完成后执行的函数；
 onMounted(() => {
-  console.log("mounted!");
+ // console.log("mounted!");
 });
 // 组件更新完成之后执行的函数；
 onUpdated(() => {
