@@ -859,7 +859,7 @@ language	js	Text	否
 开发语言
 content	暂时没有需求	Text	否	
 项目需求`
-export default {
+export  {
     windowsapi, windowsproduct,
     windowssdklog, windowssdkexplain,
     windowssdkdownloadmessage, windowssdkdownloadaddress,

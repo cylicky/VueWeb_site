@@ -1,5 +1,5 @@
 <template>
-  <p><img src="../../../../public/1.jpg" alt=""></p>
+  <p><a href="https://eloam.cn/"><img src="../../../../public/1.jpg" alt="" /></a></p>
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#736EFE"
     text-color="#fff" active-text-color="#ABDCFF" @select="handleSelect">
     <el-menu-item index="1">
@@ -18,8 +18,8 @@
       <router-link to="/test">Test 测试页面</router-link>
     </el-menu-item>
   </el-menu>
-  {{ props.msg }}
-  <button @click="tttt()">组件你好</button>
+  <!-- {{ props.msg }}
+  <button @click="tttt()">组件你好</button> -->
 </template>
 
 <script setup>
@@ -54,7 +54,7 @@ onBeforeMount(() => {
 
 // 组件挂载完成后执行的函数；
 onMounted(() => {
-
+  console.log(store.state.a.count);
   console.log("mounted!");
 
 });
@@ -88,7 +88,7 @@ const handleSelect = (key, keyPath) => {
 }
 
 .el-menu-demo {
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   color: #fff !important;
 }

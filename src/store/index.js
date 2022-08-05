@@ -3,7 +3,7 @@ import { createStore } from "vuex";
 const moduleA = {
   state() {
     return {
-      count: "1",
+      count: "heihei",
       todos: [
         { id: 1, text: "...", done: true },
         { id: 2, text: "...", done: false },

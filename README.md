@@ -5,3 +5,14 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 ## Recommended IDE Setup
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+
+
+
+上传文件
+git add . 
+
+git  status  查看上传文件
+
+git commit  -m  '上传文件说明'
+
+git push  -u origin main  上传到那个分支   

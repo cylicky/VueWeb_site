@@ -39,23 +39,10 @@
       *：如果您需要使用指纹功能，除了下载对应的SDK包，还需要硬件高拍仪配备模块模块，才可以使用此功能
 
       *：如果您需要使用人脸功能，除了下载对应的SDK包，还需要硬件高拍仪配备人脸芯片，才可以使用此功能
-
-
-
-
       如果现有的SDK开发包不满足我的功能，我应该怎么做？
-
-
       如果现有SDK的功能不能满足您的项目需求，您可以联系销售人员（高拍仪卖家）提出您的需求，由销售人员填写立项单交给研发部定制开发。
-
-
-
-
       如果demo出现bug，我可以提Issues吗？
-
-
       可以的，如果您测试出demo中的bug，亦或者您对demo有什么好的建议，都是可以前往对应的demo仓库中提Issues的。Issues标题要求：SDK名称 - 开发语言 - 功能接口 - 问题。
-
     </el-tab-pane>
     <el-tab-pane label="EloamView" name="first">EloamView </el-tab-pane>
     <el-tab-pane label="EloamDll" name="second">EloamDll </el-tab-pane>

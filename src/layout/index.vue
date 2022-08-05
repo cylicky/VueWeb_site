@@ -1,10 +1,10 @@
 <script setup>
-import {ref,getCurrentInstance} from "vue"
+import { ref, getCurrentInstance } from "vue"
 import Header from "@/layout/components/Herder/index.vue";
 import PageMain from "@/layout/components/PageMain/index.vue";
-const instance=getCurrentInstance()
-let ceshis=function(e){
-console.log(instance);
+const instance = getCurrentInstance()
+let ceshis = function (e) {
+  console.log(instance);
   console.log(e);
 }
 
@@ -14,8 +14,8 @@ console.log(instance);
 <template>
   <div class="common-layout">
     <el-container>
-      <el-header style="padding: 0px">
-          <Header ref="stateab" msg="nihaohashd" @test="ceshis"/>
+      <el-header >
+        <Header ref="stateab" msg="nihaohashd" @test="ceshis" ></Header>
       </el-header>
       <el-main>
         <PageMain />
@@ -31,12 +31,12 @@ console.log(instance);
 }
 
 footer {
-   background-color: #0396FF !important; 
+  background-color: #0396FF !important;
   color: #fff;
-  height: 70px;
-  line-height: 70px;
+  height: 50px;
+  line-height: 50px;
   display: flex;
-justify-content:center;
+  justify-content: center;
 }
 
 header {
