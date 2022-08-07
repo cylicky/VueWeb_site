@@ -6,13 +6,13 @@
       <router-link to="/home">首页</router-link>
     </el-menu-item>
     <el-menu-item index="2">
-      <router-link to="/Windows">Windows SDK</router-link>
+      <router-link to="/windows">Windows SDK</router-link>
     </el-menu-item>
     <el-menu-item index="3">
-      <router-link to="/Linux">Linux SDK </router-link>
+      <router-link to="/linux">Linux SDK </router-link>
     </el-menu-item>
     <el-menu-item index="4">
-      <router-link to="/Android">Android SDK </router-link>
+      <router-link to="/android">Android SDK </router-link>
     </el-menu-item>
     <el-menu-item index="5">
       <router-link to="/test">Test 测试页面</router-link>

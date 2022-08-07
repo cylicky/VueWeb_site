@@ -861,7 +861,7 @@ content	暂时没有需求	Text	否
 项目需求`
 export  {
     windowsapi, windowsproduct,
-    windowssdklog, windowssdkexplain,
+    windowssdklog, windowssdkexplain,windowsfunction,
     windowssdkdownloadmessage, windowssdkdownloadaddress,
     linuxdownloadmessage, linuxsdk, androiddownloadmessage, androidapp,
     androidsdk,informationretention

@@ -4,13 +4,18 @@ const moduleA = {
   state() {
     return {
       count: "heihei",
+      windowssdkdownloadmessage: {},
       todos: [
         { id: 1, text: "...", done: true },
         { id: 2, text: "...", done: false },
       ],
+      
     };
   },
   mutations: {
+    appdata(state, data) {
+      state.windowssdkdownloadmessage = data;
+    },
     increment(state, n) {
       state.count += n;
     },
@@ -41,10 +46,10 @@ const moduleA = {
   },
   getters: {
     doubleCountA(state) {
-      return state.count * 2
-    }
-  }
-}
+      return state.count * 2;
+    },
+  },
+};
 const moduleB = {
   state() {
     return {
@@ -86,15 +91,15 @@ const moduleB = {
   },
   getters: {
     doubleCountB(state) {
-      return state.count * 2
-    }
-  }
-}
+      return state.count * 2;
+    },
+  },
+};
 
 const store = createStore({
   modules: {
     a: moduleA,
-    b: moduleB
-  }
+    b: moduleB,
+  },
 });
 export default store;
