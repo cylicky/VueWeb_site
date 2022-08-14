@@ -3,21 +3,23 @@ import { createStore } from "vuex";
 const moduleA = {
   state() {
     return {
-      count: "heihei",
-      windowssdkdownloadmessage: {},
-      todos: [
-        { id: 1, text: "...", done: true },
-        { id: 2, text: "...", done: false },
-      ],
-      
+      androiddlist: {
+        AndroidDownloadMessageList: {},
+        AndroidAppList: {},
+        AndroidSdkList: {}
+      },
+      count: 1
+
     };
   },
   mutations: {
-    appdata(state, data) {
-      state.windowssdkdownloadmessage = data;
+    androiddlist(state, data) {
+      const { AndroidDownloadMessageList } = data;
+      // console.log("data数据", data)
+      state.androiddlist.AndroidDownloadMessageList = AndroidDownloadMessageList;
     },
     increment(state, n) {
-      state.count += n;
+      console.log(n)
     },
     Reduction(state) {
       state.count++;
@@ -32,7 +34,11 @@ const moduleA = {
     },
   },
   actions: {
+    androiddlist(context) {
+      context.commit("androiddlist");
+    },
     increment(context) {
+      console.log("context", context)
       context.commit("increment");
     },
     actionA({ commit }) {
@@ -54,46 +60,14 @@ const moduleB = {
   state() {
     return {
       count: 0,
-      todos: [
-        { id: 1, text: "...", done: true },
-        { id: 2, text: "...", done: false },
-      ],
     };
   },
   mutations: {
-    increment(state, n) {
-      state.count += n;
-    },
-    Reduction(state) {
-      state.count--;
-    },
-    doneTodos(state) {
-      return state.todos.filter((todo) => {
-        console.log(todo);
-        if (todo.done) {
-          todo.done;
-        }
-      });
-    },
+
   },
   actions: {
-    increment(context) {
-      context.commit("increment");
-    },
-    actionA({ commit }) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          commit("increment", 10);
-          resolve(store.state.count);
-        }, 1000);
-      });
-    },
-  },
-  getters: {
-    doubleCountB(state) {
-      return state.count * 2;
-    },
-  },
+
+  }
 };
 
 const store = createStore({
@@ -102,4 +76,13 @@ const store = createStore({
     b: moduleB,
   },
 });
+
+
+// const  store = createStore({
+//   state() {
+//     return {
+//       count: 1
+//     }
+//   }
+// })
 export default store;

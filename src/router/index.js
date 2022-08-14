@@ -5,8 +5,7 @@ import {
 } from "vue-router";
 import Layout from "@/layout/index.vue";
 import Home from "@components/home.vue";
-import Windows from "@components/Windows.vue";
-import Linux from "@components/Linux.vue";
+import mainBody from "@components/index.vue";
 
 const routes = [
   {
@@ -25,7 +24,7 @@ const routes = [
       {
         path: ":id",
         name: "windows",
-        component: Windows,
+        component: mainBody,
         // component: () => import("@components/Windows.vue")
         // meta: { title: "首页", icon: "el-icon-s-data" }
       },

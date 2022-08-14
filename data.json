@@ -162,6 +162,16 @@
         "update_at": "2021-08-11T16:02:19.786350+08:00"
       },
       {
+        "id": 124,
+        "productname": "EloamDll",
+        "functionname": "全局函数",
+        "name": "获取摄像头视频数据",
+        "desc": "获取摄像头视频数据",
+        "index": 0,
+        "create_at": "2021-06-08T20:27:07.228205+08:00",
+        "update_at": "2021-08-11T16:02:19.786350+08:00"
+      },
+      {
         "id": 5,
         "productname": "EloamView",
         "functionname": "设备",

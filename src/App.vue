@@ -5,7 +5,16 @@
 
 <template>
   <router-view />
+  <div class="footer">© 2018 新良田 粤ICP备09092426号-3</div>
 </template>
 
 <style>
+.footer {
+  background-color: #0396FF !important;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+ 
+}
 </style>

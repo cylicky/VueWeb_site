@@ -1,50 +1,32 @@
 <template>
-  <p><a href="https://eloam.cn/"><img src="../../../../public/1.jpg" alt="" /></a></p>
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#736EFE"
+  <p><a href="https://eloam.cn/"><img src="../../../../public/eloamlogo.jpg" alt="" /></a></p>
+  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#0396FF "
     text-color="#fff" active-text-color="#ABDCFF" @select="handleSelect">
-    <el-menu-item index="1">
+    <el-menu-item index="home">
       <router-link to="/home">首页</router-link>
     </el-menu-item>
-    <el-menu-item index="2">
+    <el-menu-item index="windows">
       <router-link to="/windows">Windows SDK</router-link>
     </el-menu-item>
-    <el-menu-item index="3">
+    <el-menu-item index="linux">
       <router-link to="/linux">Linux SDK </router-link>
     </el-menu-item>
-    <el-menu-item index="4">
+    <el-menu-item index="android">
       <router-link to="/android">Android SDK </router-link>
     </el-menu-item>
-    <el-menu-item index="5">
-      <router-link to="/test">Test 测试页面</router-link>
-    </el-menu-item>
+    
   </el-menu>
-  <!-- {{ props.msg }}
-  <button @click="tttt()">组件你好</button> -->
 </template>
 
 <script setup>
 import { ref, onBeforeMount, onMounted, onUpdated, onUnmounted } from "vue";
-import { useStore, mapState } from "vuex";
-const store = useStore();
-let a = 1, b = 2;
-defineExpose({
-  a, b
-})
-let activeIndex = ref("1");
-const props = defineProps({
-  msg: String
-})
-let emit = defineEmits(['test']);
-let tttt = function () {
-  console.log("heheh")
-  emit('test', activeIndex.value);
-}
+let activeIndex = ref("home");
 
 
 // onBeforeMount() : 组件挂载到节点上之前执行的函数； 挂载之前去请求
 onBeforeMount(() => {
   let Tiele = sessionStorage.getItem('mykey')
-  activeIndex.value = Tiele ? Tiele : ref("1");
+  activeIndex.value = Tiele ? Tiele : ref("home");
 });
 // onMounted() : 组件挂载完成后执行的函数；
 // onBeforeUpdate(): 组件更新之前执行的函数；
@@ -54,8 +36,8 @@ onBeforeMount(() => {
 
 // 组件挂载完成后执行的函数；
 onMounted(() => {
-  console.log(store.state.a.count);
-  console.log("mounted!");
+ 
+ // console.log("mounted!");
 
 });
 // 组件更新完成之后执行的函数；
@@ -84,7 +66,8 @@ const handleSelect = (key, keyPath) => {
 }
 
 .el-header>p img {
-  height: 70px;
+  height: 50px;
+  border: none;
 }
 
 .el-menu-demo {
