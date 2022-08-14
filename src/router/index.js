@@ -6,6 +6,7 @@ import {
 import Layout from "@/layout/index.vue";
 import Home from "@components/home.vue";
 import mainBody from "@components/index.vue";
+import test from "@components/test.vue";
 
 const routes = [
   {
@@ -28,8 +29,10 @@ const routes = [
         // component: () => import("@components/Windows.vue")
         // meta: { title: "首页", icon: "el-icon-s-data" }
       },
+      
     ],
   },
+ 
 ];
 const router = createRouter({
   history: createWebHistory(), // createWebHashHistory(),

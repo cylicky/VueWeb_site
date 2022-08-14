@@ -1,67 +1,100 @@
-
-
 <template>
-  <div>
-    <label>项目名称</label> <input type="text">
-    <button onclick="tijiao()">提交</button>
-  </div>
+  <el-form
+    :model="ruleForm"
+    status-icon
+    ref="ruleForm"
+    label-width="100px"
+    class="demo-ruleForm"
+  >
+    <el-form-item label="项目名称" prop="name">
+      <el-input
+        v-model.number="ruleForm.name"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="销售姓名" prop="sale_name">
+      <el-input
+        v-model.number="ruleForm.sale_name"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="客户姓名" prop="customer_name">
+      <el-input
+        v-model.number="ruleForm.customer_name"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="电话号码" prop="phone">
+      <el-input
+        v-model.number="ruleForm.phone"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="邮箱" prop="email">
+      <el-input
+        v-model.number="ruleForm.email"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="设备型号" prop="type">
+      <el-input
+        v-model.number="ruleForm.type"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="SDK名称" prop="sdk_name">
+      <el-input
+        v-model.number="ruleForm.sdk_name"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="开发语言" prop="language">
+      <el-input
+        v-model.number="ruleForm.language"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <el-form-item label="开发需求" prop="content">
+      <el-input
+        v-model.number="ruleForm.content"
+        placeholder="选填项，可为空"
+      ></el-input>
+    </el-form-item>
+    <!-- <el-form-item>
+      <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+      <el-button @click="resetForm('ruleForm')">重置</el-button>
+    </el-form-item> -->
+  </el-form>
 </template>
 <script >
-
-
 export default {
 
   data() {
     return {
-
-    }
+      ruleForm: {
+        name: "",
+        sale_name: "",
+        customer_name: "",
+        phone: "",
+        email: "",
+        type: "",
+        sdk_name: "",
+        language: "",
+        content: "",
+      },
+    };
   },
   methods: {
-    resetForm() {
-      if (!formEl) return
-      formEl.resetFields()
-    },
     submitForm() {
-      if (!formEl) return
-      formEl.validate((valid) => {
-        if (valid) {
-          console.log('submit!')
-        } else {
-          console.log('error submit!')
-          return false
-        }
-      })
-    }
+        console.log(ruleForm);
+        return;
+     
+    },
+    resetForm() {
+      
+    },
   },
-  beforeCreate() {
-    console.log("beforeCreate--- 实例初始化完成之后立即调用")
-  },
-  created() {
-    console.log("created--- 组件实例处理完所有与状态相关的选项后调用");
-    this.AndroidList();
-  },
-  beforeMount() {
-    console.log("beforeMount--- 组件被挂载之前调用。")
-  },
-  mounted() {
-    console.log("mounted--- 组件被挂载之后调用。")
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate--- 组件即将因为一个响应式状态变更而更新其 DOM 树之前调用")
-
-  },
-  updated() {
-    console.log("updated--- 在组件因为一个响应式状态变更而更新其 DOM 树之后调用。")
-
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount--- 在一个组件实例被卸载之前调用。")
-  },
-  unmounted() {
-    console.log("unmounted--- 在一个组件实例被卸载之后调用。")
-  }
-}
-
+};
 </script>
 <style >
 </style>
