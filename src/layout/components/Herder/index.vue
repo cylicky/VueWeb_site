@@ -14,7 +14,13 @@
     <el-menu-item index="android">
       <router-link to="/android">Android SDK </router-link>
     </el-menu-item>
+<<<<<<< HEAD
 
+=======
+    <el-menu-item index="test">
+      <router-link to="/test">test SDK </router-link>
+    </el-menu-item>
+>>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
   </el-menu>
 </template>
 

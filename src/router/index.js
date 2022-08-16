@@ -6,7 +6,12 @@ import {
 import Layout from "@/layout/index.vue";
 import Home from "@components/home.vue";
 import mainBody from "@components/index.vue";
+<<<<<<< HEAD
 import Doc from "@components/Doc.vue";
+=======
+import test from "@components/test.vue";
+
+>>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
 const routes = [
   {
     path: "/",
@@ -35,6 +40,7 @@ const routes = [
         children: [
         ]
       },
+<<<<<<< HEAD
       // {
       //   path: "/windows",
       //   name: "Doc",
@@ -45,8 +51,12 @@ const routes = [
       //   // meta: { title: "首页", icon: "el-icon-s-data" }
       // },
 
+=======
+      
+>>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
     ],
   },
+ 
 ];
 const router = createRouter({
   history: createWebHistory(), // createWebHashHistory(),
