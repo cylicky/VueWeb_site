@@ -14,48 +14,93 @@
     <el-menu-item index="android">
       <router-link to="/android">Android SDK </router-link>
     </el-menu-item>
-    
+
   </el-menu>
 </template>
 
-<script setup>
-import { ref, onBeforeMount, onMounted, onUpdated, onUnmounted } from "vue";
-let activeIndex = ref("home");
+<script >
+import { watchEffect, ref, isRef, shallowRef } from "vue"
+import { linuxTest, WindowsDownloadAddressListtest } from "@/services"
+export default {
+  setup() {
+
+    // watchEffect(() => console.log("嘿嘿12323"))
+  },
+  data() {
+    return {
+      activeIndex: "home"
+    };
+  },
+  watch: {
+    //  监听路由变化
+    "$route.params"(toParams, previousParams) {
+      //  console.log("toParams", toParams)
+
+    },
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath)
+      let Tiele = sessionStorage.setItem('mykey', key)
+      this.activeIndex = Tiele ? Tiele : this.activeIndex;
+    },
+    async test() {
+      const res = await linuxTest();
+      const res2 = await WindowsDownloadAddressListtest(1, 1)
+      console.log("res2", res2);
+      console.log(res);
+    }
+  },
+  beforeCreate() {
+    //  console.log("beforeCreate");
+
+  },
+  created() {
+    console.log("created");
+    console.log("activeIndex", this.activeIndex);
+    const keyd = sessionStorage.getItem("mykey")
+    this.activeIndex = keyd;
+    this.test();
 
 
-// onBeforeMount() : 组件挂载到节点上之前执行的函数； 挂载之前去请求
-onBeforeMount(() => {
-  let Tiele = sessionStorage.getItem('mykey')
-  activeIndex.value = Tiele ? Tiele : ref("home");
-});
-// onMounted() : 组件挂载完成后执行的函数；
-// onBeforeUpdate(): 组件更新之前执行的函数；
-// onUpdated(): 组件更新完成之后执行的函数；
-// onBeforeUnmount(): 组件卸载之前执行的函数；
-// onUnmounted(): 组件卸载完成后执行的函数；
+  },
+  beforeMount() {
 
-// 组件挂载完成后执行的函数；
-onMounted(() => {
- 
- // console.log("mounted!");
-
-});
-// 组件更新完成之后执行的函数；
-onUpdated(() => {
-  console.log("updated!");
-
-});
-//组件卸载完成后执行的函数；
-onUnmounted(() => {
-  console.log("unmounted!");
-});
-
-const handleSelect = (key, keyPath) => {
-  //保存当前用户点击的哪一个导航栏
-  sessionStorage.setItem('mykey', key)
+  },
+  mounted() {
+    // console.log("mounted");
+  },
+  beforeUpdate() {
+    // console.log("beforeUpdate");
+  },
+  updated() {
+    // console.log("updated");
+  },
+  beforeUnmount() {
+    // console.log("beforeUnmount");
+  },
+  unmounted() {
+    // console.log("unmounted");
+  },
+  errorCaptured() {
+    // console.log("errorCaptured");
+  },
+  renderTracked() {
+    // console.log("renderTracked");
+  },
+  renderTriggered() {
+    // console.log("renderTriggered");
+  },
+  activated() {
+    // console.log("activated");
+  },
+  deactivated() {
+    // console.log("deactivated");
+  },
+  serverPrefetch() {
+    // console.log("serverPrefetch");
+  },
 };
-
-
 </script>
 
 <style scoped>

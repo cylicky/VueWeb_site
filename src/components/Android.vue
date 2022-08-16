@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useStore } from "vuex";
 import { AndroidAppList, AndroidSdkList, AndroidDownloadMessageList } from "@/services";
+import test from "./test.vue"
 export default {
   setup() {
     const store = useStore();
@@ -15,7 +16,8 @@ export default {
       count: 1,
       AndroidList_data: {},
       AndroidSdkList_data: {},
-      android_data: {}
+      android_data: {},
+      centerDialogVisible: false
     }
   }, methods: {
     async AndroidList() {
@@ -112,7 +114,21 @@ export default {
     </el-tab-pane>
     <el-tab-pane label="APP下载">
       <div class="appdata" v-for="item in AndroidList_data">
-        <el-link v-bind:href="item.download" target="_blank"> {{ item.name }}</el-link>
+        <el-button @click="centerDialogVisible = true">Click to open the Dialog</el-button>
+
+        <el-dialog class="PromptWindow" v-model="centerDialogVisible" title="Warning" width="30%"
+          style="background-color: rgba(0, 0, 0, 0.5) !important;" center>
+          <span>It should be noted that the content will not be aligned in center by
+            default</span>
+          <template #footer>
+            <span class="dialog-footer">
+              <el-button @click="centerDialogVisible = false">Cancel</el-button>
+              <el-button type="primary" @click="centerDialogVisible = false">Confirm</el-button>
+            </span>
+          </template>
+        </el-dialog>
+
+        <!-- <el-link v-bind:href="item.download" target="_blank"> </el-link> -->
       </div>
     </el-tab-pane>
     <el-tab-pane label="SDk下载">
@@ -144,4 +160,10 @@ export default {
 .appdata {
   margin: 5px 0;
 }
+
+.dialog-footer button:first-child {
+  margin-right: 10px;
+}
+
+.PromptWindow {}
 </style>

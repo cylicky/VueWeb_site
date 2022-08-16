@@ -30,7 +30,7 @@ export const getData = (key) => {
 };
 
 export const getTitle = () => {
-  return axios.get(` http://localhost:3100/windowsfunction`);
+  return axios.get(`http://localhost:3100/windowsfunction`);
 };
 //Functionduct List  一级菜单  
 export const FunctionductLis = (id) => {
@@ -68,6 +68,7 @@ export const WindowsDownloadAddressList = (sdkName, Type) => {
 }
 
 
+
 // linux 国产系统简介：
 export const LinuxDownloadMessageList = () => {
   return axios.get(`/api/v1.3/linuxdownloadmessage/`);
@@ -77,6 +78,7 @@ export const LinuxDownloadMessageList = () => {
 export const LinuxSdkList = () => {
   return axios.get(`/api/v1.3/linuxsdk`);
 }
+
 
 //安卓 国产系统简介：
 export const AndroidDownloadMessageList = () => {
@@ -95,4 +97,15 @@ export const AndroidSdkList = () => {
 // 下载前要用户提供一些信息
 export const InformationRetentionList = (data) => {
   return axios.post(`/api/v1.3/informationretention/`, data)
+}
+
+
+//测试
+export const WindowsDownloadAddressListtest = (sdkName, Type) => {
+  return axios.get(`/foo/windowssdkdownloadaddress/?sdkname=${sdkName}&download_type=${Type}`);
+}
+
+
+export const linuxTest = () => {
+  return axios.get(`/foo/linuxsdk`);
 }

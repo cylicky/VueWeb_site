@@ -6,7 +6,7 @@ import {
 import Layout from "@/layout/index.vue";
 import Home from "@components/home.vue";
 import mainBody from "@components/index.vue";
-
+import Doc from "@components/Doc.vue";
 const routes = [
   {
     path: "/",
@@ -21,13 +21,30 @@ const routes = [
         //  component: () => import("@components/home.vue")
         // meta: { title: "首页", icon: "el-icon-s-data" }
       },
+      // {
+      //   path: ":id",
+      //   name: "windows",
+      //   component: mainBody,
+      //   // component: () => import("@components/Windows.vue")
+      //   // meta: { title: "首页", icon: "el-icon-s-data" }
+      // },
       {
         path: ":id",
-        name: "windows",
+        name: "mainBody",
         component: mainBody,
-        // component: () => import("@components/Windows.vue")
-        // meta: { title: "首页", icon: "el-icon-s-data" }
+        children: [
+        ]
       },
+      // {
+      //   path: "/windows",
+      //   name: "Doc",
+      //   component: mainBody,
+        
+        
+      //   //  component: () => import("@components/home.vue")
+      //   // meta: { title: "首页", icon: "el-icon-s-data" }
+      // },
+
     ],
   },
 ];

@@ -95,6 +95,7 @@ export default {
       const linux_res = await LinuxDownloadMessageList();
       this.windwos_list = windwos_res.results;
       this.linux_list = linux_res.results;
+      this.android_list = android_res.results;
       const res = {
         AndroidDownloadMessageList: android_res.results,
       }
@@ -114,7 +115,7 @@ export default {
   },
   beforeMount() {
     // console.log("beforeMount");
-    this.android_list = this.AndroidStore.a.androiddlist.AndroidDownloadMessageList;
+    // this.android_list = this.AndroidStore.a.androiddlist.AndroidDownloadMessageList;
   },
   mounted() {
     // console.log("mounted");
@@ -156,7 +157,7 @@ export default {
 }
 
 .main_detailed:hover {
-  font-size: 20px;
+  /* font-size: 20px; */
 
 }
 </style>

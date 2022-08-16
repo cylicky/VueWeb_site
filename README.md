@@ -16,3 +16,7 @@ git  status  查看上传文件
 git commit  -m  '上传文件说明'
 
 git push  -u origin main  上传到那个分支   
+
+
+// 启动本地数据
+json-server db.json --routes routes.json

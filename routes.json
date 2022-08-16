@@ -1,0 +1,14 @@
+{
+    "/windowsproduct": "/windowsproduct",
+    "/windowsfunction": "/windowsfunction",
+    "/windowsapi": "/windowsapi",
+    "/windowssdklog": "/windowssdklog",
+    "/windowssdkexplain": "/windowssdkexplain",
+    "/windowssdkdownloadmessage": "/windowssdkdownloadmessage",
+    "/windowssdkdownloadaddress": "/windowssdkdownloadaddress",
+    "/linuxdownloadmessage": "/linuxdownloadmessage",
+    "/linuxsdk": "/linuxsdk",
+    "/androidapp": "/androidapp",
+    "/androidsdk": "/androidsdk",
+    "/androiddownloadmessage": "/androiddownloadmessage"
+}

@@ -1,30 +1,32 @@
 <template>
   <div v-if="key === 'windows'">
-
     <div class="winflex">
       <div class="button" v-for="(value, key) in source" :key="key" @click="changeActiveKey(value[0].id)">
         {{ key }}
       </div>
     </div>
-    <div v-for="(value, key) in secondkey" :key="key">
-      <el-dropdown trigger="click">
-        <span class="el-dropdown-link" >
-         {{ value.name }}
-         
-        </span>
-        <template #dropdown slot="dropdown-methods">
-          <el-dropdown-menu>
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-            <el-dropdown-item disabled>Action 4</el-dropdown-item>
-            <el-dropdown-item divided>Action 5</el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
-
-     
+    <!-- <div v-for="(value, key) in secondkey" :key="key"> -->
+    <el-col :span="16">
+      <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" :unique-opened="true" :router="true"
+        @close="handleClose" v-for="(value, key) in secondkey" :key="key">
+        <el-sub-menu :index="String(value.id)">
+          <template #title>
+            <el-icon>
+              <location />
+            </el-icon>
+            <span>{{ value.name }}</span>
+          </template>
+          <el-menu-item-group v-for="(value, key) in itemkey" :key="key">
+            <el-menu-item :index='"/windows/"+value.id' @click="kkkk()">{{ value.name }}</el-menu-item>
+          </el-menu-item-group>
+        </el-sub-menu>
+      </el-menu>
+    </el-col>
+    <div >
+     <router-view />
     </div>
+    <!-- </div> -->
+
   </div>
   <div v-if="key === 'linux'">
     <Linux></Linux>
@@ -36,7 +38,8 @@
 <script >
 import Linux from "./Linux.vue"
 import Android from "./Android.vue"
-import { FunctionductLis, ProductList, } from "@/services";
+import Doc from "./Doc.vue"
+import { FunctionductLis, ProductList, ApiductList } from "@/services";
 export default {
   data() {
     return {
@@ -44,18 +47,30 @@ export default {
       loading: false,
       key: "", //当前路由名称
       activeKey: "", //一级菜单
-      secondkey: {}
+      secondkey: {},
+      itemkey: {}
     };
   },
   watch: {
     // 监听路由变化
     "$route.params"(toParams, previousParams) {
-      console.log("路由", toParams.id);
       this.key = toParams.id;
       this.fetchData(toParams.id);
     },
   },
   methods: {
+    kkkk() {
+      console.log(123)
+    },
+    async handleOpen(key, keypath) {
+      console.log(key)
+      const res = await ApiductList(key);
+      this.itemkey = res.results;
+      console.log(res.results);
+    },
+    handleClose(key, keypath) {
+      console.log(key)
+    },
     async fetchData(id) {
       if (id) {
         try {
@@ -90,7 +105,6 @@ export default {
     // 切换一级菜单
     changeActiveKey(key) {
       this.getFunctionductLis(key);
-
       this.activeKey = key;
     },
     // 切换二级菜单数据
