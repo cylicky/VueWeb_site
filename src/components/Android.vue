@@ -1,26 +1,12 @@
 <script >
-import { computed,ref } from "vue";
-import { useStore } from "vuex";
-<<<<<<< HEAD
+import { computed, ref } from "vue";
+import Validation from "./Validation.vue";
 import { AndroidAppList, AndroidSdkList, AndroidDownloadMessageList } from "@/services";
-import test from "./test.vue"
-=======
-import test from "./test.vue";
-import {
-  AndroidAppList,
-  AndroidSdkList,
-  AndroidDownloadMessageList,
-} from "@/services";
->>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
 export default {
+  components: {
+    Validation
+  },
   setup() {
-    const store = useStore();
-   
-    return {
-      AndroidStore: computed(() => store.state),
-      store,
-      
-    };
   },
   data() {
     return {
@@ -28,17 +14,13 @@ export default {
       AndroidList_data: {},
       AndroidSdkList_data: {},
       android_data: {},
-<<<<<<< HEAD
-      centerDialogVisible: false
-    }
-  }, methods: {
-=======
       dialogVisible: false,
-    };
+      downloadurl: ""
+    }
   },
   methods: {
->>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
     async AndroidList() {
+
       const android_res = await AndroidDownloadMessageList();
       const AndroidList_res = await AndroidAppList();
       const AndroidSdkList_res = await AndroidSdkList();
@@ -46,68 +28,25 @@ export default {
       this.AndroidSdkList_data = AndroidSdkList_res.results;
       this.android_data = android_res.results;
     },
-    handleOpen() {
-      console.log(this.dialogVisible);
+    handleOpen(download) {
+      this.downloadurl = download;
       this.dialogVisible = true;
-      
     },
-    handleClose(){
+    handleClose() {
       this.dialogVisible = false;
-    
     }
   },
-  beforeCreate() {
-    console.log("beforeCreate--- 实例初始化完成之后立即调用");
-  },
+
   created() {
-    console.log("created--- 组件实例处理完所有与状态相关的选项后调用");
+    //console.log("created--- 组件实例处理完所有与状态相关的选项后调用");
     this.AndroidList();
   },
-  beforeMount() {
-    console.log("beforeMount--- 组件被挂载之前调用。");
-  },
-  mounted() {
-    console.log("mounted--- 组件被挂载之后调用。");
-  },
-  beforeUpdate() {
-    console.log(
-      "beforeUpdate--- 组件即将因为一个响应式状态变更而更新其 DOM 树之前调用"
-    );
-  },
-  updated() {
-    console.log(
-      "updated--- 在组件因为一个响应式状态变更而更新其 DOM 树之后调用。"
-    );
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount--- 在一个组件实例被卸载之前调用。");
-  },
-  unmounted() {
-    console.log("unmounted--- 在一个组件实例被卸载之后调用。");
-  },
+
 };
 </script>
-
 <template>
   <el-tabs type="border-card" class="demo-tabs">
     <el-tab-pane label="下载说明">
-      <button @click="handleOpen">点击</button>
-      <!-- <test v-show="dialogVisible"></test> -->
-
-      <el-dialog
-        title="提示"
-       v-model="dialogVisible"
-        width="50%"
-        center
-      >
-        <test ></test>
-        <span  class="dialog-footer">
-          <el-button @click="handleClose">取 消</el-button>
-          <el-button type="primary" @click="handleClose"
-            >确 定</el-button
-          >
-        </span>
-      </el-dialog>
       <div v-for="item in android_data">
         <div v-html="item.desc"></div>
         <div>
@@ -143,9 +82,7 @@ export default {
           <p>&nbsp;</p>
 
           <p>
-            <strong>指纹仪【</strong>zaz_V8a_(20200105)_androidstudio<strong
-              >】</strong
-            >
+            <strong>指纹仪【</strong>zaz_V8a_(20200105)_androidstudio<strong>】</strong>
           </p>
 
           <p>
@@ -177,41 +114,39 @@ export default {
     </el-tab-pane>
     <el-tab-pane label="APP下载">
       <div class="appdata" v-for="item in AndroidList_data">
-<<<<<<< HEAD
-        <el-button @click="centerDialogVisible = true">Click to open the Dialog</el-button>
-
-        <el-dialog class="PromptWindow" v-model="centerDialogVisible" title="Warning" width="30%"
-          style="background-color: rgba(0, 0, 0, 0.5) !important;" center>
-          <span>It should be noted that the content will not be aligned in center by
-            default</span>
-          <template #footer>
-            <span class="dialog-footer">
-              <el-button @click="centerDialogVisible = false">Cancel</el-button>
-              <el-button type="primary" @click="centerDialogVisible = false">Confirm</el-button>
-            </span>
-          </template>
-        </el-dialog>
-
-        <!-- <el-link v-bind:href="item.download" target="_blank"> </el-link> -->
-=======
+        <!-- <el-button @click="handleOpen(item.download)">{{ item.name }}</el-button>
+        <el-dialog v-model="dialogVisible" title="用户信息留存" width="50%" center :modal="false">
+          <Validation :downloadUrl="this.downloadurl" @handleClose="handleClose" />
+        </el-dialog> -->
         <el-link v-bind:href="item.download" target="_blank">
-          {{ item.name }}</el-link
-        >
->>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
+          {{ item.name }}</el-link>
+
+
       </div>
     </el-tab-pane>
     <el-tab-pane label="SDk下载">
       <div class="appdata" v-for="item in AndroidSdkList_data">
-        <el-link v-bind:href="item.download" target="_blank">
-          {{ item.name }}</el-link
-        >
+
+        <el-button text @click="handleOpen(item.download)">{{ item.name }}</el-button>
+
+        <el-dialog v-model="dialogVisible" title="用户信息留存" width="50%" center :modal="false" :append-to-body="true">
+          <Validation :downloadUrl="this.downloadurl" @handleClose="handleClose" />
+
+        </el-dialog>
+
+
+
       </div>
     </el-tab-pane>
   </el-tabs>
 </template>
 <style scoped>
+.el-tab-pane {
+  height: 800px;
+}
+
 .appdata a {
-  display: inline-block;
+  /* display: inline-block;
   height: 50px;
   width: 160px;
   text-decoration: none;
@@ -219,7 +154,7 @@ export default {
   color: #fff;
   border-radius: 30px;
   line-height: 50px;
-  text-align: center;
+  text-align: center; */
 }
 
 .el-link.is-underline:hover:after {
@@ -234,5 +169,8 @@ export default {
   margin-right: 10px;
 }
 
-.PromptWindow {}
+/* .el-dialog {
+  box-shadow: none !important;
+  border: 1px solid #000 !important;
+} */
 </style>

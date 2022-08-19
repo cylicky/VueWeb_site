@@ -13,24 +13,15 @@
     </el-menu-item>
     <el-menu-item index="android">
       <router-link to="/android">Android SDK </router-link>
-    </el-menu-item>
-<<<<<<< HEAD
-
-=======
-    <el-menu-item index="test">
-      <router-link to="/test">test SDK </router-link>
-    </el-menu-item>
->>>>>>> 7acebc23b84d1b64be916f31ed211e64da19cb4c
+    </el-menu-item> 
   </el-menu>
 </template>
 
 <script >
-import { watchEffect, ref, isRef, shallowRef } from "vue"
 import { linuxTest, WindowsDownloadAddressListtest } from "@/services"
 export default {
   setup() {
-
-    // watchEffect(() => console.log("嘿嘿12323"))
+  
   },
   data() {
     return {
@@ -50,25 +41,20 @@ export default {
       let Tiele = sessionStorage.setItem('mykey', key)
       this.activeIndex = Tiele ? Tiele : this.activeIndex;
     },
-    async test() {
-      const res = await linuxTest();
-      const res2 = await WindowsDownloadAddressListtest(1, 1)
-      console.log("res2", res2);
-      console.log(res);
-    }
+    // async test() {
+    //   const res = await linuxTest();
+    //   const res2 = await WindowsDownloadAddressListtest(1, 1)
+    //   console.log("res2", res2);
+    //   console.log(res);
+    // }
   },
   beforeCreate() {
     //  console.log("beforeCreate");
 
   },
   created() {
-    console.log("created");
-    console.log("activeIndex", this.activeIndex);
     const keyd = sessionStorage.getItem("mykey")
     this.activeIndex = keyd;
-    this.test();
-
-
   },
   beforeMount() {
 

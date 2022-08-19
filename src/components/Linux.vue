@@ -1,61 +1,88 @@
 
 <template>
-  <el-tabs type="border-card" class="demo-tabs">
-    <el-tab-pane label="下载说明">
+  <div class="linux-main">
+    <el-tabs type="border-card" class="demo-tabs">
+      <el-tab-pane label="下载说明">
+        <div v-for="(value, index) in LinuxDownloadMessageList">
+          <div v-html="LinuxDownloadMessageList[0].desc"></div>
+        </div>
 
-      <div v-html="LinuxDownloadMessageList"></div>
-    </el-tab-pane>
-    <el-tab-pane label="AMD">AMD</el-tab-pane>
-    <el-tab-pane label="ARM">ARM</el-tab-pane>
-    <el-tab-pane label="MIPS">MIPS</el-tab-pane>
-  </el-tabs>
+      </el-tab-pane>
+      <el-tab-pane :label="item[0].linux_type" v-for="(item, key) in linuxSDK" :key="key">
+        <div v-for="(value, index) in  item" :key="key" class="link_a">
+          <el-link v-bind:href="value.download" target="_blank" :underline="false">
+            {{ value.name }}</el-link>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
+  </div>
+
 </template>
 <script >
-import { computed } from 'vue'
-import { useStore } from "vuex";
 import { LinuxDownloadMessageList, LinuxSdkList } from "@/services";
 export default {
 
   data() {
     return {
       LinuxDownloadMessageList: {},
+      linuxSDK: {},
+      linux_type: "sub",
+      linux_down: {},
     }
   }, methods: {
+    linuxSub(linux_type) {
+      this.linux_type = linux_type.linux_type;
+      this.linux_down = this.linuxSDK[linux_type.linux_type];
+
+    },
     async AndroidList() {
-      const res = await LinuxDownloadMessageList();
+      const res_log = await LinuxDownloadMessageList();
       const resSDK = await LinuxSdkList();
-      this.LinuxDownloadMessageList = res.results[0].desc;
+      this.LinuxDownloadMessageList = res_log.results;
+      const data = {};
+      for (let item of resSDK.results) {
+        if (!data[item.linux_type]) {
+          data[item.linux_type] = [];
+        }
+        data[item.linux_type].push(item);
+      }
+      this.linuxSDK = data;
+      console.log("data", data)
+      return;
+
     }
   },
   beforeCreate() {
-    console.log("beforeCreate--- 实例初始化完成之后立即调用")
+
   },
   created() {
-    console.log("created--- 组件实例处理完所有与状态相关的选项后调用");
     this.AndroidList();
   },
-  beforeMount() {
-    console.log("beforeMount--- 组件被挂载之前调用。")
-  },
-  mounted() {
-    console.log("mounted--- 组件被挂载之后调用。")
-  },
-  beforeUpdate() {
-    console.log("beforeUpdate--- 组件即将因为一个响应式状态变更而更新其 DOM 树之前调用")
 
-  },
-  updated() {
-    console.log("updated--- 在组件因为一个响应式状态变更而更新其 DOM 树之后调用。")
 
-  },
-  beforeUnmount() {
-    console.log("beforeUnmount--- 在一个组件实例被卸载之前调用。")
-  },
-  unmounted() {
-    console.log("unmounted--- 在一个组件实例被卸载之后调用。")
-  }
+
 }
 
 </script>
 <style scoped>
+.el-tabs__content {
+  padding: 15px 30px;
+}
+.el-tab-pane {
+  height: 800px;
+}
+.link_a {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  background-color: #0396FF;
+  border-radius: 30px;
+  padding: 15px 20px;
+  margin: 15px 0px;
+}
+
+.el-link {
+
+  color: #fff;
+}
 </style>

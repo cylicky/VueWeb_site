@@ -21,8 +21,6 @@ import PageMain from "@/layout/components/PageMain/index.vue";
   overflow: hidden;
 }
 
-
-
 header {
   display: flex;
   justify-content: space-between;
