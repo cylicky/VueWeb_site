@@ -1,33 +1,40 @@
-<script setup>
-import Header from "@/layout/components/Herder/index.vue";
-import PageMain from "@/layout/components/PageMain/index.vue";
-</script>
-
 <template>
-  <div class="common-layout">
-    <el-container>
-      <el-header>
-        <Header></Header>
-      </el-header>
-      <el-main>
-        <PageMain />
-      </el-main>
-    </el-container>
+  <div class="layui-bg-green">
+    <div class="main_txt">
+      <h1>E l o a m</h1>
+      <h2>Eloam SDK 在线对接平台</h2>
+      <cite>多种对接方式,轻松对接。及时获取最新版SDK开发包。</cite>
+    </div>
   </div>
 </template>
-<style scoped>
-.el-main {
-  padding: 0px;
-  overflow: hidden;
+<script >
+export default {};
+</script>
+<style >
+.layui-bg-green {
+  height: 500px;
+  background-color: #009688 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
 
-header {
+
+.main_txt h1,
+.main_txt h2 ,
+.main_txt cite{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0396FF !important;
-  color: #fff;
-  height: 99px;
-  overflow: hidden;
+  justify-content: center;
+}
+
+.main_txt h1 {
+  font-size: 80px;
+  padding: 20px 0;
+}
+
+.main_txt h2 {
+  font-size: 50px;
+  padding: 35px 0 ;
 }
 </style>

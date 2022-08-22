@@ -1,6 +1,6 @@
 <script >
 import { computed, ref } from "vue";
-import Validation from "./Validation.vue";
+import Validation from "../test/Validation.vue";
 import { AndroidAppList, AndroidSdkList, AndroidDownloadMessageList } from "@/services";
 export default {
   components: {

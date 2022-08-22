@@ -1,20 +1,21 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+<script>
+import Nav from "@components/Nav/index.vue";
+import Footer from "@components/Footer/index.vue";
+export default {
+  components: {
+    Nav,
+    Footer,
+  },
+};
+
 </script>
 
 <template>
+  <Nav />
+
   <router-view />
-  <div class="footer">© 2018 新良田 粤ICP备09092426号-3</div>
+  <Footer />
 </template>
 
 <style>
-.footer {
-  background-color: #0396FF !important;
-  color: #fff;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
- 
-}
 </style>
