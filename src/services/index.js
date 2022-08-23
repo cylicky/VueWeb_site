@@ -121,3 +121,16 @@ export const linuxsdkTest = () => {
 export const linuxdownloadmessageTest = () => {
   return axios.get(`/foo/linuxdownloadmessage`);
 };
+
+
+export const androidsdkTest = () => {
+  return axios.get(`/foo/androidsdk`);
+};
+export const androidappTest = () => {
+  return axios.get(`/foo/androidapp`);
+};
+
+
+export const androiddownloadmessageTest = () => {
+  return axios.get(`/foo/androiddownloadmessage`);
+};

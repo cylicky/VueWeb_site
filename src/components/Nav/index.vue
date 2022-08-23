@@ -1,30 +1,16 @@
 <template>
   <header class="site-nav">
-    <a href="http://elam.cn/" target="_blank"
-      ><img src="/eloamlogo.jpg" alt=""
-    /></a>
+    <a href="http://elam.cn/" target="_blank"><img src="/eloamlogo.jpg" alt="" /></a>
     <menu>
-      <router-link
-        :to="{ path: '/home' }"
-        :class="$route.path.replace('/', '') === 'home' ? 'active' : ''"
-      >
+      <router-link :to="{ path: '/home' }" :class="$route.path.replace('/', '') === 'home' ? 'active' : ''">
         首页
       </router-link>
-      <router-link
-        :class="
-          item.name.toLowerCase() === $route.params.layout ? 'active' : ''
-        "
-        :to="'/' + item.name.toLowerCase()"
-        v-for="(item, index) in list"
-        :key="index"
-        >{{ item.name }}
+      <router-link :class="
+        item.name.toLowerCase() === $route.params.layout ? 'active' : ''
+      " :to="'/' + item.name.toLowerCase()" v-for="(item, index) in list" :key="index">{{ item.name }}
         <div v-if="item.child">
-          <router-link
-            :to="`/${item.name.toLowerCase()}/${sub.name.toLowerCase()}`"
-            v-for="(sub, key) in activeMenu"
-            :key="key"
-            >{{ sub.name }}</router-link
-          >
+          <router-link :to="`/${item.name.toLowerCase()}/${sub.name.toLowerCase()}`" v-for="(sub, key) in activeMenu"
+            :key="key">{{ sub.name }}</router-link>
         </div>
       </router-link>
     </menu>
@@ -60,8 +46,9 @@ export default {
   methods: {
     async getList() {
       const res = await windowsproductTest();
+      console.log("this.$store.state.a.list", this.$store.state.a.list)
       this.activeMenu = res.results;
-      this.$store.commit("activeMenu",res.results);
+      //this.$store.commit("activeMenu", res.results);
     },
   },
 };

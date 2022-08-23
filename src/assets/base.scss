@@ -2,22 +2,27 @@ body {
   font: 14px/1.5 Helvetica Neue, Helvetica, PingFang SC, Tahoma, Arial,
     sans-serif;
 }
+
 .site-nav {
   display: flex;
   color: #fff;
   font-size: 20px;
   background-color: #393d49;
+  padding: 0 100px;
   align-items: center;
   justify-content: space-between;
+
   menu {
     display: flex;
-    > a {
+
+    >a {
       color: #fff;
       text-decoration: none;
       display: block;
       position: relative;
       padding: 30px 25px;
-      > div {
+
+      >div {
         display: none;
         z-index: 9999;
         position: absolute;
@@ -25,37 +30,44 @@ body {
         left: 0px;
         width: 100%;
         background-color: #393d49 !important;
-        > a {
+
+        >a {
           display: block;
           text-decoration: none;
           color: #fff;
           width: 100%;
           text-align: center;
           padding: 10px 0;
+
           &:hover {
             background-color: rgba(255, 255, 255, 0.2);
             color: #000;
           }
         }
       }
-      
-      &:hover ,&:hover >div{
+
+      &:hover,
+      &:hover>div {
         display: block;
-        background-color:rgba(255, 255, 255, 0.2);
+        background-color: rgba(255, 255, 255, 0.2);
         color: #000;
       }
     }
   }
-  > a {
+
+  >a {
     text-decoration: none;
     padding: 0 35px;
+
     img {
       display: block;
       height: 45px;
     }
   }
+
   .active {
     background-color: rgba(255, 255, 255, 0.2);
+
     &::after {
       display: block;
       position: absolute;
@@ -71,20 +83,25 @@ body {
 
 .main-content {
   display: flex;
+
   .main-content-nav {
     border: 1px solid #ddd;
     overflow: hidden;
-    > div {
+
+    >div {
       cursor: pointer;
       padding: 10px;
       font-size: 14px;
       font-weight: 500;
-      > ul {
+
+      >ul {
         font-size: 12px;
         font-weight: normal;
         margin: 10px 0;
-        > li {
+
+        >li {
           padding: 5px;
+
           &.active {
             background-color: #5fb878;
             color: #fff;
@@ -95,32 +112,40 @@ body {
   }
 }
 
-.link-nav {
+.linux-nav,
+.android-nva {
   display: flex;
   margin: 15px 20px;
+
   .active {
     color: #fff;
     background-color: #5fb878;
   }
-  > a {
+
+  >a {
     display: block;
     padding: 10px 15px;
     color: #000;
     text-decoration: none;
+
     &:hover {
       color: #fff;
       background-color: #5fb878;
     }
   }
 }
-.linuxmain {
+
+.linux-content,
+.android-content {
   margin: 25px 30px;
-  .linux-sdk {
+
+  .linux-sdk,
+  .android-sdk {
     display: flex;
     flex-direction: column;
     height: 750px;
-    > div {
-      // display: flex;
+
+    >div {
       a {
         display: block;
         padding: 15px 10px;
