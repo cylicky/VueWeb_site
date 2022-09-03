@@ -134,3 +134,8 @@ export const androidappTest = () => {
 export const androiddownloadmessageTest = () => {
   return axios.get(`/foo/androiddownloadmessage`);
 };
+
+export const windowsapiTest = (id) => {
+  return axios.get(`/foo/windowsapi/${id}`);
+};
+
