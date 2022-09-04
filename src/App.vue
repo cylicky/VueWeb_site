@@ -10,7 +10,7 @@ export default {
     Footer,
   },
   mounted() {
-    this.getList();
+    // this.getList();
   },
   methods: {
     async getList() {
@@ -24,7 +24,10 @@ export default {
 
 <template>
   <Nav />
+  <main class="main-viewport">
   <router-view />
+  </main>
+
   <Footer />
 </template>
 

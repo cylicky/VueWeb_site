@@ -137,5 +137,14 @@ export const androiddownloadmessageTest = () => {
 
 export const windowsapiTest = (id) => {
   return axios.get(`/foo/windowsapi/${id}`);
-};
 
+};
+export const windowssdkdownloadmessageTest =()=>{
+  return axios.get(`/foo/windowssdkdownloadmessage`)
+ 
+}
+
+export const windowssdkdownloadaddressTest =()=>{
+  return axios.get(`/foo/windowssdkdownloadaddress`)
+ 
+}

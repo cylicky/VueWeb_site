@@ -7,7 +7,7 @@ import Home from "@/layout/index.vue";
 import mainBody from "@/layout/Main/index.vue";
 import GaoPaiyi from "@/layout/GaoPaiyi/index.vue";
 import testBody from "@/layout/Main/Validation.vue";
-import testBodyddd from "@/layout/test/test.vue";
+import WinDownload from "@/layout/Main/windownload.vue";
 const routes = [
   {
     path: "/",
@@ -22,7 +22,7 @@ const routes = [
   { path: "/:layout/:subpage", component: mainBody },
   { path: "/webgaopaiyi", component: GaoPaiyi },
   { path: "/test", component: testBody },
-  { path: "/windw", component: testBodyddd },
+  // { path: "/windowsdownload", component: WinDownload },
 ];
 const router = createRouter({
   history: createWebHistory(), // createWebHashHistory(),

@@ -1,6 +1,6 @@
 <template>
   <header class="site-nav">
-    <a href="http://elam.cn/" target="_blank"><img src="/eloamlogo.jpg" alt="" /></a>
+    <a href="http://eloam.cn/" target="_blank"><img src="/eloamlogo.jpg" alt="" /></a>
     <menu>
       <router-link :to="{ path: '/home' }" :class="$route.path.replace('/', '') === 'home' ? 'active' : ''">
         首页
@@ -46,7 +46,6 @@ export default {
   methods: {
     async getList() {
       const res = await windowsproductTest();
-      console.log("this.$store.state.a.list", this.$store.state.a.list)
       this.activeMenu = res.results;
       //this.$store.commit("activeMenu", res.results);
     },
